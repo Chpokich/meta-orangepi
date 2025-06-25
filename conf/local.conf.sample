@@ -15,7 +15,7 @@
 # Machine Selection
 #
 # You need to select a specific machine to target the build with.
-#MACHINE ?= "orangepi-4-lts"
+MACHINE ?= "orangepi-cm4"
 
 DISTRO ?= "poky"
 #
