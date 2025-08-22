@@ -22,7 +22,7 @@ BL31_ELF = "orangepi-binary/bl31.elf"
 TRUST_IMG = "trust.img"
 # Not from orangepi-binary
 UBOOT_IMG = "u-boot.img"
-UBOOT_ITB = "u-boot.itb"
+UBOOT_ITB = "u-boot.bin"
 
 GPTIMG_APPEND_px30 = "console=tty1 console=ttyS1,1500000n8 rw \
 	root=PARTUUID=b921b045-1d rootfstype=ext4 init=/sbin/init rootwait"
@@ -222,7 +222,7 @@ generate_px30_loader_image () {
 	ROOTFS_START=$(expr ${BOOT_START} + ${BOOT_SIZE})
 
 	# Burn bootloader
-	loaderimage --pack --uboot ${DEPLOY_DIR_IMAGE}/u-boot-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/${UBOOT_IMG} 0x200000 --size 1024 1
+	loaderimage --pack --uboot ${DEPLOY_DIR_IMAGE}/u-boot-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/${UBOOT_IMG} 0x200000 --size 2048 1
 
 	${DEPLOY_DIR_IMAGE}/mkimage -n ${SOC_FAMILY} -T rksd -d ${DEPLOY_DIR_IMAGE}/${DDR_BIN} ${DEPLOY_DIR_IMAGE}/${IDBLOADER}
 	cat ${DEPLOY_DIR_IMAGE}/${MINILOADER_BIN} >>${DEPLOY_DIR_IMAGE}/${IDBLOADER}
@@ -337,7 +337,7 @@ generate_rk3399_loader_image () {
 	ROOTFS_START=$(expr ${BOOT_START} + ${BOOT_SIZE})
 
 	# Burn bootloader
-	loaderimage --pack --uboot ${DEPLOY_DIR_IMAGE}/u-boot-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/${UBOOT_IMG} 0x200000 --size 1024 1
+	loaderimage --pack --uboot ${DEPLOY_DIR_IMAGE}/u-boot-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/${UBOOT_IMG} 0x200000 --size 2048 1
 
 	${DEPLOY_DIR_IMAGE}/mkimage -n ${SOC_FAMILY} -T rksd -d ${DEPLOY_DIR_IMAGE}/${DDR_BIN} ${DEPLOY_DIR_IMAGE}/${IDBLOADER}
 	cat ${DEPLOY_DIR_IMAGE}/${MINILOADER_BIN} >>${DEPLOY_DIR_IMAGE}/${IDBLOADER}

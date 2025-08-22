@@ -1,4 +1,4 @@
-HOMEPAGE = "https://github.com/orangepi-xunlong/OrangePiRK3399_uboot"
+HOMEPAGE = "https://github.com/orangepi-xunlong/u-boot-orangepi"
 SECTION = "bootloaders"
 DEPENDS += "flex-native bison-native"
 
@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://Licenses/README;md5=30503fd321432fc713238f582193b78e"
 PE = "1"
 
 SRC_URI = " \
-	git://github.com/orangepi-xunlong/OrangePiRK3399_uboot.git;branch=master; \
+	git://github.com/orangepi-xunlong/u-boot-orangepi;branch=v2017.09-rk3588; \
 "
 SRCREV = "${AUTOREV}"
 

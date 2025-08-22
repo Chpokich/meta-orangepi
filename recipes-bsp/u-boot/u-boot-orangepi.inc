@@ -1,10 +1,11 @@
 require u-boot.inc
 
-HOMEPAGE = "https://github.com/orangepi-xunlong/OrangePiRK3399_uboot"
+HOMEPAGE = "https://github.com/orangepi-xunlong/u-boot-orangepi"
 LICENSE = "GPLv2+"
-COMPATIBLE_MACHINE = "(rk3399)"
+COMPATIBLE_MACHINE = "(rk3566)"
 SECTION = "bootloaders"
 DEPENDS = "dtc-native bc-native swig-native bison-native coreutils-native"
+#UBOOT_SUFFIX ?= "img"
 
 S = "${WORKDIR}/git"
 
@@ -60,6 +61,9 @@ do_deploy_append() {
 	if [ -f "${WORKDIR}/boot.cmd" ]; then
 		install -D -m 644 ${WORKDIR}/boot.cmd ${DEPLOYDIR}/
 	fi
+
+	#new 
+	#install -D -m 0644 ${B}/u-boot.img ${DEPLOYDIR}/u-boot.img
 }
 
 PACKAGE_BEFORE_PN = "${PN}-scripts"

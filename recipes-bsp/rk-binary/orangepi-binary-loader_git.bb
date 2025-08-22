@@ -1,24 +1,24 @@
 DESCRIPTION = "Rockchip-OrangePi binary loader"
 
-LICENSE = "BINARY"
-LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=564e729dd65db6f65f911ce0cd340cf9"
+LICENSE = "CLOSED"
+LIC_FILES_CHKSUM = "file://${THISDIR}/dummy;md5=d41d8cd98f00b204e9800998ecf8427e"
 NO_GENERIC_LICENSE[BINARY] = "LICENSE.TXT"
 
 DEPENDS = "orangepi-binary-native"
 
-SRC_URI = "git://github.com/orangepi-xunlong/OrangePiRK3399_external.git;branch=master;"
+SRC_URI = "git://github.com/rockchip-linux/rkbin;branch=master;"
 SRCREV = "${AUTOREV}"
 
-S = "${WORKDIR}/git/rkbin"
+S = "${WORKDIR}/git/bin/rk35"
 
 
-LOADER_rk3399 ?= "rk33/rk3399_loader_v1.08.106.bin"
+LOADER_rk3566 ?= "rk356x_spl_v1.14.bin"
 
-MINILOADER_rk3399 ?= "rk33/rk3399_miniloader_v1.15.bin"
+MINILOADER_rk3566 ?= "rk356x_spl_v1.14.bin"
 
-DDR_rk3399 ?= "rk33/rk3399_ddr_800MHz_v1.15.bin"
+DDR_rk3566 ?= "rk3566_ddr_1056MHz_D3_LP3_eyescan_v1.23.bin"
 
-BL31_rk3399 ?= "rk33/rk3399_bl31_v1.18.elf"
+BL31_rk3566 ?= "rk3568_bl31_ultra_v2.17.elf"
 
 inherit deploy
 

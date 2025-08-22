@@ -2,14 +2,14 @@ inherit native deploy
 
 DESCRIPTION = "Rockchip-OrangPi binary tools"
 
-LICENSE = "BINARY"
-LIC_FILES_CHKSUM = "file://LICENSE.TXT;md5=564e729dd65db6f65f911ce0cd340cf9"
+LICENSE = "CLOSED"
+LIC_FILES_CHKSUM = "file://${THISDIR}/dummy;md5=d41d8cd98f00b204e9800998ecf8427e"
 NO_GENERIC_LICENSE[BINARY] = "LICENSE.TXT"
 
-SRC_URI = "git://github.com/orangepi-xunlong/OrangePiRK3399_external.git;branch=master;"
+SRC_URI = "git://github.com/rockchip-linux/rkbin;branch=master;"
 SRCREV = "${AUTOREV}"
 
-S = "${WORKDIR}/git/rkbin"
+S = "${WORKDIR}/git/"
 
 do_install () {
 	install -d ${D}/${bindir}
